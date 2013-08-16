@@ -13,3 +13,4 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/make_sandwich.txt

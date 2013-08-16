@@ -1,5 +1,7 @@
 class SandwichesController < ApplicationController
 
+	include ApplicationHelper
+
 	def new
 		@sandwich = Sandwich.new
 	end
@@ -16,10 +18,11 @@ class SandwichesController < ApplicationController
 
 	def send_email(sandwich, password)
 		gmail = Gmail.connect(sandwich.sender, password)
+		email_body = "Please make me a sandwich" + get_quote
 		email = gmail.compose do 
 			to sandwich.receiver
 			subject "I have a favor to ask"
-			body "Please make me a sandwich"
+			body email_body
 		end
 		email.deliver!
 	end
