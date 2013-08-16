@@ -1,0 +1,8 @@
+<h2>Order a Sandwich!</h2>
+
+<%= form_for @sandwich do |f| %>
+	<%= f.text_field :sender %>
+	<%= f.text_field :password %>
+	<%= f.text_field :receiver %>
+	<%= f.submit %>
+<% end %>
