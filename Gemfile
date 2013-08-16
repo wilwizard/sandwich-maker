@@ -12,4 +12,4 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'make-sandwich'
+gem 'gmail'
