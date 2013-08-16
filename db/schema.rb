@@ -11,11 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130816194339) do
+ActiveRecord::Schema.define(:version => 20130816221219) do
 
   create_table "sandwiches", :force => true do |t|
     t.string   "sender"
-    t.string   "password"
     t.string   "receiver"
     t.string   "quote"
     t.datetime "created_at", :null => false

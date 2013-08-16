@@ -13,4 +13,3 @@ end
 
 gem 'jquery-rails'
 gem 'gmail'
-gem 'bcrypt'

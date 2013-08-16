@@ -1,8 +1,8 @@
 <h2>Order a Sandwich!</h2>
 
-<%= form_for @sandwich do |f| %>
-	<%= f.text_field :sender, placeholder: "Your email" %><br>
-	<%= f.text_field :password, placeholder: "Password" %><br>
-	<%= f.text_field :receiver, placeholder: "Sandwich maker's email" %><br>
-	<%= f.submit %>
+<%= form_tag :sandwiches do %>
+	<%= text_field_tag :sender, nil, placeholder: "Your email" %><br>
+	<%= text_field_tag :password, nil, placeholder: "Password" %><br>
+	<%= text_field_tag :receiver, nil, placeholder: "Sandwich maker's email" %><br>
+	<%= submit_tag %>
 <% end %>
