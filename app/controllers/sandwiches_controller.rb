@@ -13,11 +13,14 @@ class SandwichesController < ApplicationController
 			items << item + ','
 		end
 		p items
-		sandwich = Sandwich.create(:sender => params[:sender], 
+		if sandwich = Sandwich.create(:sender => params[:sender], 
 									:receiver => params[:receiver],
 									:items => items)
-		@password = params[:password]
-		send_email(sandwich, @password)
+			@password = params[:password]
+			send_email(sandwich, @password)
+		else
+			flash[:error] = "something went wrong"
+		end
 		redirect_to root_path
 	end
 

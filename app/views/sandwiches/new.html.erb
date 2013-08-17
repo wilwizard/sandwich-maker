@@ -1,3 +1,7 @@
+<% flash.each do |key, message| %>
+	<%= content_tag :div, message, , :class => key  %>
+<% end %>
+
 <h2>Order a Sandwich!</h2>
 
 <%= form_tag :sandwiches do %>
