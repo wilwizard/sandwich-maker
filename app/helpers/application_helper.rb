@@ -6,4 +6,15 @@ module ApplicationHelper
 		quote.pop
 		quote.join('')
 	end
+
+	def compose_body(sandwich)
+		body = "Could you please make me a sandwich?\n\n"
+		body << "I would like:\n"
+		sandwich.items.split(',').each do |item|
+			body << item + "\n"
+		end
+		body << "Thank you :)\n\n"
+		body << get_quote
+		body
+	end
 end

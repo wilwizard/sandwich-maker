@@ -8,8 +8,14 @@ class SandwichesController < ApplicationController
 	end
 
 	def create
+		items = ""
+		params[:items].each do |item, value|
+			items << item + ','
+		end
+		p items
 		sandwich = Sandwich.create(:sender => params[:sender], 
-															 :receiver => params[:receiver])
+									:receiver => params[:receiver],
+									:items => items)
 		@password = params[:password]
 		send_email(sandwich, @password)
 		redirect_to root_path
@@ -19,7 +25,7 @@ class SandwichesController < ApplicationController
 
 	def send_email(sandwich, password)
 		gmail = Gmail.connect(sandwich.sender, password)
-		email_body = "Please make me a sandwich\n\n" + get_quote
+		email_body = compose_body(sandwich)
 		email = gmail.compose do 
 			to sandwich.receiver
 			subject "I have a favor to ask"
