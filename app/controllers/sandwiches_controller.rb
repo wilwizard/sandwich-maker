@@ -9,6 +9,9 @@ class SandwichesController < ApplicationController
 	def create
 		@sandwich = Sandwich.new
 		@password = params[:password]
+		@sandwich.sender = params[:sender]
+		@sandwich.receiver = params[:receiver]
+
 
 		if params[:items]
 			params[:items].each do |item, value|
@@ -18,9 +21,6 @@ class SandwichesController < ApplicationController
 		else
 			flash[:error] = "Please select some items for your sandwich"
 		end
-
-		@sandwich.sender = params[:sender]
-		@sandwich.receiver = params[:receiver]
 
 		if @sandwich.save			
 			if @sandwich.send_email(@password)

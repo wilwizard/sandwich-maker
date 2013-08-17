@@ -10,7 +10,10 @@
 Item.destroy_all
 Sandwich.destroy_all
 
-items = %w(turkey bacon ham roastbeef tomato lettuce pickles mustard mayo)
+items = %w(turkey bacon ham roastbeef 
+	tomato lettuce pickles onions
+	swiss chedder provilone
+	mustard mayo ketchup)
 
 items.each do |item|
 	Item.create(description: item)

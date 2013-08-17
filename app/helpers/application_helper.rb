@@ -10,8 +10,8 @@ module ApplicationHelper
 	def compose_body(sandwich)
 		body = "Could you please make me a sandwich?\n\n"
 		body << "I would like:\n"
-		sandwich.items.split(',').each do |item|
-			body << item + "\n"
+		sandwich.items.each do |item|
+			body << item.description + "\n"
 		end
 		body << "Thank you :)\n\n"
 		body << sandwich.quote

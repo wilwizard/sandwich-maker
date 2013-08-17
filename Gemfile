@@ -15,3 +15,9 @@ gem 'jquery-rails'
 gem 'gmail'
 gem 'typhoeus'
 gem 'jquery-ui-rails'
+
+group :development, :test do
+	gem 'factory_girl_rails'
+	gem 'rspec-rails'
+	gem 'shoulda-matchers'
+end
