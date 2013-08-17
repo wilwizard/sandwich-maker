@@ -1,0 +1,12 @@
+.error {
+	background-color: red;
+}
+
+.message {
+	background-color: green;
+}
+
+.container {
+	width: 800px;
+	margin: auto;
+}

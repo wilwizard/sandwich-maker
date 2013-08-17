@@ -13,9 +13,10 @@ $(document).ready(function(){
 	$(document).on('click', '.add_new_item', function(event){
 		event.preventDefault();
 		var item = $('#new_item').val();
-		$('.create_sandwich').before(createLabel(item));
-		$('.create_sandwich').before(createCheckBox(item));
-		$('.create_sandwich').before($('<br>'));
+		$('.item_list').prepend($('<br>'));
+		$('.item_list').prepend(createLabel(item));
+		$('.item_list').prepend(createCheckBox(item));
+		
 	});
 
 });

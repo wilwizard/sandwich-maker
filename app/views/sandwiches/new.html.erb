@@ -1,25 +1,28 @@
-<% flash.each do |key, message| %>
-	<%= content_tag :div, message, :class => key  %>
-<% end %>
+<div class="container">
 
-<h2>Order a Sandwich!</h2>
-
-<%= form_tag :sandwiches, :class => :item_list do %>
-	<%= text_field_tag :sender, nil, placeholder: "Your email" %><br>
-	<%= password_field_tag :password, nil, placeholder: "Password" %><br>
-	<%= text_field_tag :receiver, nil, placeholder: "Sandwich maker's email" %><br>
-	
-	<% @items.each do |item| %>
-	<% name = item.description %>
-	<%= label_tag name %>
-	<%= check_box_tag "items[#{name}]", 'yes' %><br>
+	<% flash.each do |key, message| %>
+		<%= content_tag :div, message, :class => key  %>
 	<% end %>
 
-	<%= submit_tag "Order", :class => :create_sandwich %>
-<% end %>
+	<h2>Order a Sandwich!</h2>
 
-<%= form_tag do %>
-	<%= text_field_tag :new_item, nil, :placeholder => "New ingredient" %>
-	<%= button_tag "add ingredient", :class => :add_new_item %>
-<% end %>
+	<%= form_tag do %>
+		<%= text_field_tag :new_item, nil, :placeholder => "New ingredient" %>
+		<%= button_tag "add ingredient", :class => :add_new_item %>
+	<% end %>
 
+	<%= form_tag :sandwiches, :class => :item_list do %>
+		<% @items.each do |item| %>
+			<% name = item.description %>
+			<%= check_box_tag "items[#{name}]", 'yes' %>
+			<%= label_tag name %><br>
+		<% end %>
+
+		<%= text_field_tag :sender, nil, placeholder: "Your email" %><br>
+		<%= password_field_tag :password, nil, placeholder: "Password" %><br>
+		<%= text_field_tag :receiver, nil, placeholder: "Sandwich maker's email" %><br>
+
+		<%= submit_tag "Order", :class => :create_sandwich %>
+	<% end %>
+
+</div>
