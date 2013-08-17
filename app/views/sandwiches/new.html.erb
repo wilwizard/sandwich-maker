@@ -2,7 +2,19 @@
 
 <%= form_tag :sandwiches do %>
 	<%= text_field_tag :sender, nil, placeholder: "Your email" %><br>
-	<%= text_field_tag :password, nil, placeholder: "Password" %><br>
+	<%= password_field_tag :password, nil, placeholder: "Password" %><br>
 	<%= text_field_tag :receiver, nil, placeholder: "Sandwich maker's email" %><br>
 	<%= submit_tag %>
 <% end %>
+
+<ul class="pantry">
+	<% @items.each do |item| %>
+		<li class="sandwich-item">
+		<%= item %>
+		</li>
+	<% end %>
+<ul>
+
+<h5>Sandwich</h5>
+<ul class="sandwich">
+</ul>

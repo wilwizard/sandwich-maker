@@ -4,6 +4,7 @@ class SandwichesController < ApplicationController
 
 	def new
 		@sandwich = Sandwich.new
+		@items = %w(turkey bacon ham roastbeef tomato lettuce pickles mustard mayo)
 	end
 
 	def create
@@ -18,7 +19,7 @@ class SandwichesController < ApplicationController
 
 	def send_email(sandwich, password)
 		gmail = Gmail.connect(sandwich.sender, password)
-		email_body = "Please make me a sandwich" + get_quote
+		email_body = "Please make me a sandwich\n\n" + get_quote
 		email = gmail.compose do 
 			to sandwich.receiver
 			subject "I have a favor to ask"

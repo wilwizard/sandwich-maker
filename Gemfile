@@ -14,3 +14,4 @@ end
 gem 'jquery-rails'
 gem 'gmail'
 gem 'typhoeus'
+gem 'jquery-ui-rails'
