@@ -14,7 +14,7 @@ module ApplicationHelper
 			body << item + "\n"
 		end
 		body << "Thank you :)\n\n"
-		body << get_quote
+		body << sandwich.quote
 		body
 	end
 end
