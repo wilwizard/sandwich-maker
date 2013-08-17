@@ -4,7 +4,7 @@
 
 <h2>Order a Sandwich!</h2>
 
-<%= form_tag :sandwiches do %>
+<%= form_tag :sandwiches, :class => :item_list do %>
 	<%= text_field_tag :sender, nil, placeholder: "Your email" %><br>
 	<%= password_field_tag :password, nil, placeholder: "Password" %><br>
 	<%= text_field_tag :receiver, nil, placeholder: "Sandwich maker's email" %><br>
@@ -15,10 +15,11 @@
 	<%= check_box_tag "items[#{name}]", 'yes' %><br>
 	<% end %>
 
-	<%= submit_tag %>
+	<%= submit_tag "Order", :class => :create_sandwich %>
 <% end %>
 
-
-
-
+<%= form_tag do %>
+	<%= text_field_tag :new_item, nil, :placeholder => "New ingredient" %>
+	<%= button_tag "add ingredient", :class => :add_new_item %>
+<% end %>
 

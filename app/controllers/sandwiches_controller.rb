@@ -15,7 +15,7 @@ class SandwichesController < ApplicationController
 
 		if params[:items]
 			params[:items].each do |item, value|
-				item = Item.find_by_description(item)
+				item = Item.find_or_create_by_description(item)
 				@sandwich.items << item
 			end
 		else
