@@ -9,31 +9,26 @@ class SandwichesController < ApplicationController
 
 	def create
 		items = ""
-		params[:items].each do |item, value|
-			items << item + ','
+		if params[:items]
+			params[:items].each do |item, value|
+				items << item + ','
+			end
+		else
+			flash[:error] = "Please select some items for your sandwich"
 		end
-		p items
+		@password = params[:password]
 		if sandwich = Sandwich.create(:sender => params[:sender], 
 									:receiver => params[:receiver],
 									:items => items)
-			@password = params[:password]
-			send_email(sandwich, @password)
+			if sandwich.send_email(@password)
+				flash[:message] = "Sandwich is on its way"
+			else
+				flash[:error] = "Email didn't send"
+			end
 		else
-			flash[:error] = "something went wrong"
+			flash[:error] = "Please fill out everything"
 		end
 		redirect_to root_path
 	end
 
-	private
-
-	def send_email(sandwich, password)
-		gmail = Gmail.connect(sandwich.sender, password)
-		email_body = compose_body(sandwich)
-		email = gmail.compose do 
-			to sandwich.receiver
-			subject "I have a favor to ask"
-			body email_body
-		end
-		email.deliver!
-	end
 end
