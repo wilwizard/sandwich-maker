@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+Item.destroy_all
+Sandwich.destroy_all
+
+items = %w(turkey bacon ham roastbeef tomato lettuce pickles mustard mayo)
+
+items.each do |item|
+	Item.create(description: item)
+end
+

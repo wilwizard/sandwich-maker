@@ -10,8 +10,9 @@
 	<%= text_field_tag :receiver, nil, placeholder: "Sandwich maker's email" %><br>
 	
 	<% @items.each do |item| %>
-	<%= label_tag item %>
-	<%= check_box_tag "items[#{item}]", 'yes' %><br>
+	<% name = item.description %>
+	<%= label_tag name %>
+	<%= check_box_tag "items[#{name}]", 'yes' %><br>
 	<% end %>
 
 	<%= submit_tag %>

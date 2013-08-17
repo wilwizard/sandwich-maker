@@ -2,8 +2,10 @@ class Sandwich < ActiveRecord::Base
 
 	include ApplicationHelper
 
-	attr_accessible :sender, :receiver, :items
-	validates_presence_of :sender, :receiver, :items
+	attr_accessible :sender, :receiver
+
+	has_and_belongs_to_many :items
+	validates_presence_of :sender, :receiver
 	after_create :add_quote
 
 	def send_email(password)
