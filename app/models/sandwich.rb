@@ -6,21 +6,6 @@ class Sandwich < ActiveRecord::Base
 	validates_presence_of :sender, :receiver
 	after_create :add_quote
 
-	# def send_email(password)
-	# 	gmail = Gmail.connect(sender, password)
-	# 	return false unless gmail.signed_in?
-
-	# 	email_body = compose_body(self)
-	# 	receiver_email = receiver
-	# 	quote_text = quote
-
-	# 	email = gmail.compose do 
-	# 		to receiver_email
-	# 		subject "I have a favor to ask"
-	# 		body email_body
-	# 	end
-	# 	email.deliver!
-	# end
 
 	private
 
