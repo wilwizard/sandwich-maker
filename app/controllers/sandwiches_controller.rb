@@ -23,7 +23,7 @@ class SandwichesController < ApplicationController
 		end
 
 		if @sandwich.save			
-			if @sandwich.send_email(@password)
+			if Mailer.send(@sandwich, @password)
 				flash[:message] = "Sandwich is on its way"
 			else
 				flash[:error] = "Email didn't send"
